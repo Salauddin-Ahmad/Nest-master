@@ -1,0 +1,9 @@
+## get request for Nest app
+
+GET http://localhost:3000/users/g/h
+
+
+# Post request for Nest app
+POST http://localhost:3000/users
+Content-type application/json
+{}
