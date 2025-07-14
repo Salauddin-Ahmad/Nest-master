@@ -1,14 +1,15 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Get, Param, Post, Query } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
-  @Get(':id/:optional') // Optional parameter 'optional'
-  public getUsers(
-    @Param('id') id: string, // Assuming 'id' is a path parameter
-    @Param('optional') optional: string, // Assuming 'id' is a path parameter
-  ) {
-    console.log(id, optional);
-    return 'you sent a get request to /users';
+  @Get(':id')
+  @Get(':id/:optional')
+  public getUsers(@Param('id') id: any, @Param('optional') optional?: any) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    console.log({ id, optional });
+    return optional
+      ? `You asked for id=${id} with optional=${optional}`
+      : `You asked for id=${id} only`;
   }
 
   @Post()

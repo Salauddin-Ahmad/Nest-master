@@ -1,6 +1,6 @@
 ## get request for Nest app
 
-GET http://localhost:3000/users/g/h
+GET http://localhost:3000/users/sdf
 
 
 # Post request for Nest app
