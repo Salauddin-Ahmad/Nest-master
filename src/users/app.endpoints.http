@@ -1,6 +1,6 @@
 ## get request for Nest app
 
-GET http://localhost:3000/users/1234/22?limit=10&offset=20
+GET http://localhost:3000/users/sd/sss?limit=10&offset=20
 
 # Post request for Nest app
 
