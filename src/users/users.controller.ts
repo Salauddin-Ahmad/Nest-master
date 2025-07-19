@@ -5,21 +5,26 @@ import {
   Param,
   Post,
   Query,
-  Headers,
-  Req,
-  Ip,
+  // Headers,
+  // Req,
+  // Ip,
   ParseIntPipe,
   DefaultValuePipe,
   ValidationPipe,
   Patch,
 } from '@nestjs/common';
 
-import { Request } from 'express';
+// import { Request } from 'express';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUserParamDto } from './dtos/get-users-params.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
+import { UserService } from './providers/user.service';
 @Controller('users')
 export class UsersController {
+  constructor(
+    private readonly userService: UserService, // Injecting UserService to use its methods
+  ) {}
+
   /****
    *
    *    * Final Endpoint - /users/id?limit=10&page=1 
@@ -36,27 +41,24 @@ export class UsersController {
   @Get([':id', ':id/:optional'])
   public getUsers(
     // @Param('id', ParseIntPipe) id?: number, // using ParseIntPipe to ensure id is an integer
-    @Param() getUserParamDto?: GetUserParamDto, // using GetUserParamDto to validate the id parameter
-    @Param('optional') optional?: number,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit?: number,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page?: number,
+    @Param() getUserParamDto: GetUserParamDto, // using GetUserParamDto to validate the id parameter
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
+    // @Param('optional') optional?: number, // optional parameter
   ) {
-    console.log(getUserParamDto);
     // console.log(typeof limit, typeof page);
 
-    return `request to get users route`;
+    return {
+      id: getUserParamDto.id,
+      limit: limit,
+      page: page,
+    };
   }
 
   @Post()
   public createUsers(
     @Body(new ValidationPipe()) createUserDto: CreateUserDto, // using @Body() to get the body of the request
-    // @Headers() headers: any, // using @Headers() to get all headers
-    // @Req() req: Request, // using @Req() to get the entire request object
-    // @Ip() ip: any, // using @Ip() to get the IP address of the request
   ) {
-    // Log the request body, headers, IP address, method, and URL
-    // console.log(headers, ip, req.method, req.url)
-
     console.log(createUserDto instanceof CreateUserDto);
 
     return 'you sent a post request to /users';
