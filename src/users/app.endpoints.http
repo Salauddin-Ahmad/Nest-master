@@ -1,11 +1,12 @@
 ## get request for Nest app
 
-GET http://localhost:3000/users/12
+GET http://localhost:3000/users/
 ?limit=kl
 &page=1
 
 # Post request for Nest app
 
+// IMPORTANT: This is a POST USER request
 POST http://localhost:3000/users
 Content-Type: application/json
 
@@ -13,5 +14,15 @@ Content-Type: application/json
   "firstName": "John",
   "lastName": "Doe",
   "email": "johndoe@gmail.com",
-  "password": "12345678"
+  "password": "12345678Tt@"
+}
+
+// MARK: This is a PATCH USER request
+PATCH http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "johndoe@gmail.com",
 }
