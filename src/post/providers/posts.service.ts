@@ -6,7 +6,7 @@ export class PostsService {
   // Injecting UserService to use its methods
   constructor(private readonly userService: UserService) {}
 
-  public findAll(userId: string) {
+  public findUser(userId: string) {
     const userID = this.userService.findOneById(userId);
 
     return [

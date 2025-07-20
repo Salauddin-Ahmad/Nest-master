@@ -48,11 +48,7 @@ export class UsersController {
   ) {
     // console.log(typeof limit, typeof page);
 
-    return {
-      id: getUserParamDto.id,
-      limit: limit,
-      page: page,
-    };
+    return this.userService.findAll(getUserParamDto, limit, page);
   }
 
   @Post()
