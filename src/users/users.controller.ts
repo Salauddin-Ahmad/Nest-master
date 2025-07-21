@@ -19,7 +19,9 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUserParamDto } from './dtos/get-users-params.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
 import { UserService } from './providers/user.service';
+import { ApiTags } from '@nestjs/swagger';
 @Controller('users')
+@ApiTags('Users') // Swagger tag for grouping endpoints
 export class UsersController {
   constructor(
     private readonly userService: UserService, // Injecting UserService to use its methods
