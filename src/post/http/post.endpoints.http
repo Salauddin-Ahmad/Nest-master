@@ -1,1 +1,20 @@
-GET http://localhost:3000/posts/1234
+POST http://localhost:3000/posts
+Content-Type: application/json 
+
+{
+  "title": "whats new in NestJS",
+  "postType": "post",
+  "slug": "new-with-nestjs",
+  "status": "draft",
+  "content": "test content",
+  "schema": "article",
+  "featuredImageUrl": "https://example.com/image.jpg",
+  "publishOn": "2025-10-01T00:00:00Z",
+  "tags": ["nestjs", "typescript", "backend"],
+  "metaOptions": [
+    {
+      "key": "testkey",
+      "value": "20"
+    },
+  ]
+}

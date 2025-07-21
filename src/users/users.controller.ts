@@ -19,7 +19,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUserParamDto } from './dtos/get-users-params.dto';
 import { PatchUserDto } from './dtos/patch-user.dto';
 import { UserService } from './providers/user.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 @Controller('users')
 @ApiTags('Users') // Swagger tag for grouping endpoints
 export class UsersController {
@@ -29,7 +29,7 @@ export class UsersController {
 
   /****
    *
-   *    * Final Endpoint - /users/id?limit=10&page=1 
+   ** Final Endpoint - /users/id?limit=10&page=1 
    * /users/1223 -> returns one user whos id is 1234
    * /users?limit=10&page=2 -> return page 2 with limt of pagination 10
    * Parama id - optional, convert to integer, cannot have a default value
@@ -41,6 +41,29 @@ export class UsersController {
    */
 
   @Get([':id', ':id/:optional'])
+  @ApiOperation({
+    summary: 'Get user by id or all users with pagination',
+    description: 'Fetch a user by their ID or all users',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'users fetched successfully',
+    type: GetUserParamDto, // Adjust this to the appropriate response DTO
+  })
+  @ApiQuery({
+    name: 'limit',
+    type: 'number',
+    required: false,
+    description: 'Number of entries to return per query',
+    example: 10,
+  })
+  @ApiQuery({
+    name: 'page',
+    type: 'number',
+    required: false,
+    description: 'Position of the page to return',
+    example: 1,
+  })
   public getUsers(
     // @Param('id', ParseIntPipe) id?: number, // using ParseIntPipe to ensure id is an integer
     @Param() getUserParamDto: GetUserParamDto, // using GetUserParamDto to validate the id parameter
