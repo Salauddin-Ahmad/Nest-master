@@ -17,14 +17,14 @@ export enum PostType {
   Post = 'post',
   Page = 'page',
   Story = 'story',
-  Series = 'series',
+  Series = 'series'
 }
 
 export enum postStatus {
   Draft = 'draft',
   Scheduled = 'scheduled',
   Review = 'review',
-  Published = 'published',
+  Published = 'published'
 }
 
 export class CreatePostMetaOptionsDto {
@@ -74,9 +74,8 @@ export class CreatePostDto {
   @IsOptional()
   publishOn: Date;
 
-  @IsString()
-  @IsOptional()
-  @IsArray({ each: true })
+  @IsArray()
+  @IsString({ each: true })
   @MinLength(3, { each: true })
   tags: string[];
 

@@ -7,7 +7,7 @@ Content-Type: application/json
   "slug": "new-with-nestjs",
   "status": "draft",
   "content": "test content",
-  "schema": "article",
+   "schema": "{\"type\":\"object\"}",     
   "featuredImageUrl": "https://example.com/image.jpg",
   "publishOn": "2025-10-01T00:00:00Z",
   "tags": ["nestjs", "typescript", "backend"],
@@ -15,6 +15,6 @@ Content-Type: application/json
     {
       "key": "testkey",
       "value": "20"
-    },
+    }
   ]
 }
