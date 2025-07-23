@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { PostsService } from './providers/posts.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from './dtos/create-post.dto';
+import { PatchPostDto } from './dtos/patch-post.dto';
 
 @Controller('posts')
 @ApiTags('Posts') // Swagger tag for grouping endpoints
@@ -18,10 +19,23 @@ export class PostController {
     return this.postService.findUser(userId);
   }
 
+  @ApiOperation({
+    summary: 'Creates a new post',
+    description: 'Creates a new blog post with the provided details.',
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Post created successfully',
+  })
   @Post()
   public createPosty(
     @Body() createPostDto: CreatePostDto, // Assuming CreatePostDto is defined elsewhere
   ) {
     console.log(createPostDto);
+  }
+
+  @Patch()
+  public updatePost(@Body() patchPostsDto: PatchPostDto) {
+    console.log(patchPostsDto);
   }
 }

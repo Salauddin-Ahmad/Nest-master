@@ -89,22 +89,55 @@ export class CreatePostDto {
   @IsOptional()
   schema?: string;
 
+  @ApiPropertyOptional({
+    description: 'Featured image of the post',
+    example: 'https://example.com/image.jpg',
+  })
   @IsString()
   @IsUrl()
   featuredImageUrl?: string;
 
+  @ApiPropertyOptional({
+    description: 'The date on which the post is published',
+    example: '2023-10-01T12:00:00Z',
+  })
   @IsISO8601()
   @IsOptional()
   publishOn: Date;
 
+  @ApiPropertyOptional({
+    description: 'Array of tags passed as strings',
+    example: ['nestjs', 'typescript'],
+  })
   @IsArray()
+  @IsOptional()
   @IsString({ each: true })
   @MinLength(3, { each: true })
-  tags: string[];
+  tags?: string[];
 
+  @ApiPropertyOptional({
+    type: 'array',
+    required: false,
+    items: {
+      type: 'object',
+      properties: {
+        key: {
+          type: 'string',
+          description:
+            'The key can be any string identifier for the meta option',
+          example: 'sidebarEnabled',
+        },
+        value: {
+          type: 'any',
+          description: 'Any value that you want to associate with the key',
+          example: 'true',
+        },
+      },
+    },
+  })
   @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => CreatePostMetaOptionsDto)
-  metaOptions: CreatePostMetaOptionsDto[];
+  metaOptions?: CreatePostMetaOptionsDto[];
 }
