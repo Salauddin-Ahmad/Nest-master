@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 
-// MARK: POST /posts
+// MARK: PATCH /posts
 
 PATCH http://localhost:3000/posts
 Content-Type: application/json
@@ -28,6 +28,5 @@ Content-Type: application/json
 {
   "id": 1234,
   "postType": "post"
- 
 
 }
