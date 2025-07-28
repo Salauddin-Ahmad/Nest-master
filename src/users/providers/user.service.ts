@@ -1,11 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { GetUserParamDto } from './../dtos/get-users-params.dto';
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { AuthService } from 'src/auth/providers/auth.service';
 
+/**
+ * Class to connet user table and business operations
+ */
 @Injectable()
 export class UserService {
-  // Injecting AuthService
-
+  /**
+   * The method to get all the users from the database
+   */
   constructor(
     @Inject(forwardRef(() => AuthService)) // Using forwardRef to avoid circular dependency
     private readonly authService: AuthService,
@@ -15,7 +20,7 @@ export class UserService {
   }
 
   /**
-   * find a user by id
+   * find all users
    */
   public findAll(
     getUserParamDto: GetUserParamDto,
@@ -38,7 +43,7 @@ export class UserService {
   }
 
   /**
-   * find a user by id
+   * find a single user by id
    */
   public findOneById(userId: string) {
     // Simulating a user lookup

@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Class to connet user table and business operations</p>
+
+            </p>
 
 
 
@@ -166,12 +173,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/users/providers/user.service.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/users/providers/user.service.ts:10</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The method to get all the users from the database</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -231,15 +240,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/users/providers/user.service.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/users/providers/user.service.ts:25</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>find a user by id</p>
+                        <div class="io-description"><p>find all users</p>
 </div>
 
                             <div class="io-description">
@@ -326,15 +335,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/users/providers/user.service.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/users/providers/user.service.ts:48</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>find a user by id</p>
+                        <div class="io-description"><p>find a single user by id</p>
 </div>
 
                             <div class="io-description">
@@ -385,10 +394,14 @@
 import { forwardRef, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { AuthService } from &#x27;src/auth/providers/auth.service&#x27;;
 
+/**
+ * Class to connet user table and business operations
+ */
 @Injectable()
 export class UserService {
-  // Injecting AuthService
-
+  /**
+   * The method to get all the users from the database
+   */
   constructor(
     @Inject(forwardRef(() &#x3D;&gt; AuthService)) // Using forwardRef to avoid circular dependency
     private readonly authService: AuthService,
@@ -398,7 +411,7 @@ export class UserService {
   }
 
   /**
-   * find a user by id
+   * find all users
    */
   public findAll(
     getUserParamDto: GetUserParamDto,
@@ -421,7 +434,7 @@ export class UserService {
   }
 
   /**
-   * find a user by id
+   * find a single user by id
    */
   public findOneById(userId: string) {
     // Simulating a user lookup
