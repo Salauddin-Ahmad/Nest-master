@@ -20,7 +20,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: 5432,
       username: 'postgres',
       password: 'asdsasds34@',
-      host: 'localhost',
+      host: '127.0.0.1',
       database: 'Nest-master',
     }),
   ],
