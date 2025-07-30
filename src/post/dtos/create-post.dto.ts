@@ -10,6 +10,7 @@ import {
   IsString,
   IsUrl,
   Matches,
+  MaxLength,
   MinLength,
   ValidateNested,
 } from 'class-validator';
@@ -46,6 +47,7 @@ export class CreatePostDto {
   })
   @IsString()
   @MinLength(3)
+  @MaxLength(512)
   @IsNotEmpty()
   title: string;
 
@@ -63,6 +65,7 @@ export class CreatePostDto {
   })
   @IsString()
   @IsNotEmpty()
+  @MaxLength(255)
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message:
       'Slug must be lowercase and can only contain letters, numbers, and hyphens eg: my-url',
@@ -95,6 +98,7 @@ export class CreatePostDto {
   })
   @IsString()
   @IsUrl()
+  @MaxLength(1024)
   featuredImageUrl?: string;
 
   @ApiPropertyOptional({
