@@ -2,10 +2,12 @@ import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
+  Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
+@Entity('tags')
 export class TagEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -20,7 +22,7 @@ export class TagEntity {
 
   @Column({
     type: 'varchar',
-    length: 510,
+    length: 255,
     nullable: false,
     unique: true,
   })

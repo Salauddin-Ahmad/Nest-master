@@ -48,7 +48,7 @@ export class UserService {
     page: number,
   ) {
     const isAuth = this.authService.isAuth();
-    console.log(`Is Authenticated: ${isAuth}`);
+    // console.log(`Is Authenticated: ${isAuth}`);
 
     return [
       {
