@@ -8,8 +8,6 @@ import { CreatePostMetaoptionsDto } from '../dtos/create-post-metaoption.dto';
 @Injectable()
 export class MetaOptionsService {
   constructor(
-    @Inject()
-    private readonly MetaOptionsController: MetaOptionsController,
     @InjectRepository(Metaoption)
     private readonly metaoptionRepository: Repository<Metaoption>,
   ) {
