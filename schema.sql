@@ -57,7 +57,8 @@ CREATE TABLE public.meta_options (
     id integer NOT NULL,
     "metaValue" json NOT NULL,
     "createdDate" timestamp without time zone DEFAULT now() NOT NULL,
-    "updateDate" timestamp without time zone DEFAULT now() NOT NULL
+    "updateDate" timestamp without time zone DEFAULT now() NOT NULL,
+    "postId" integer
 );
 
 
@@ -99,7 +100,7 @@ CREATE TABLE public.post_entity (
     schema text,
     "featuredImage" character varying(1024),
     "publishOn" timestamp without time zone,
-    tags text
+    "metaOptionsId" integer
 );
 
 
@@ -266,11 +267,27 @@ ALTER TABLE ONLY public.tags
 
 
 --
+-- Name: meta_options UQ_4f31301436c1a10e36f48e46626; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.meta_options
+    ADD CONSTRAINT "UQ_4f31301436c1a10e36f48e46626" UNIQUE ("postId");
+
+
+--
 -- Name: post_entity UQ_6e606c5d905ee68d531a4d66a06; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post_entity
     ADD CONSTRAINT "UQ_6e606c5d905ee68d531a4d66a06" UNIQUE (slug);
+
+
+--
+-- Name: post_entity UQ_8f1ed08647cc0e1d466cc117ac2; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.post_entity
+    ADD CONSTRAINT "UQ_8f1ed08647cc0e1d466cc117ac2" UNIQUE ("metaOptionsId");
 
 
 --
@@ -295,6 +312,22 @@ ALTER TABLE ONLY public.tags
 
 ALTER TABLE ONLY public."user"
     ADD CONSTRAINT "UQ_e12875dfb3b1d92d7d7c5377e22" UNIQUE (email);
+
+
+--
+-- Name: meta_options FK_4f31301436c1a10e36f48e46626; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.meta_options
+    ADD CONSTRAINT "FK_4f31301436c1a10e36f48e46626" FOREIGN KEY ("postId") REFERENCES public.post_entity(id) ON DELETE CASCADE;
+
+
+--
+-- Name: post_entity FK_8f1ed08647cc0e1d466cc117ac2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.post_entity
+    ADD CONSTRAINT "FK_8f1ed08647cc0e1d466cc117ac2" FOREIGN KEY ("metaOptionsId") REFERENCES public.meta_options(id);
 
 
 --
