@@ -142,6 +142,7 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
@@ -193,6 +194,7 @@
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
                         <span ><b>email</b></span>
                         <a href="#email"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -209,13 +211,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNotEmpty()<br />@IsEmail()<br />
+                            @IsNotEmpty()<br />@IsEmail()<br />@MaxLength(95)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/users/dtos/create-user.dto.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/users/dtos/create-user.dto.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -248,7 +250,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsNotEmpty()<br />@MinLength(3)<br />@MaxLength(50)<br />
+                            @IsString()<br />@IsNotEmpty()<br />@MinLength(3)<br />@MaxLength(95)<br />
                         </code>
                     </td>
                 </tr>
@@ -288,7 +290,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsOptional()<br />@MinLength(3)<br />@MaxLength(50)<br />
+                            @IsString()<br />@IsOptional()<br />@MinLength(3)<br />@MaxLength(95)<br />
                         </code>
                     </td>
                 </tr>
@@ -327,13 +329,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@IsNotEmpty()<br />@MinLength(8)<br />@Matches(/^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)[A-Za-z\d@$!%*?&amp;]{8,}$/, {message: &#x27;Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.&#x27;})<br />
+                            @IsString()<br />@IsNotEmpty()<br />@MaxLength(95)<br />@Matches(/^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)[A-Za-z\d@$!%*?&amp;]{8,}$/, {message: &#x27;Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/users/dtos/create-user.dto.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/users/dtos/create-user.dto.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -366,22 +368,23 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
-  @MaxLength(50)
+  @MaxLength(95)
   firstName: string;
 
   @IsString()
   @IsOptional()
   @MinLength(3)
-  @MaxLength(50)
+  @MaxLength(95)
   lastName?: string;
 
   @IsNotEmpty()
   @IsEmail()
+  @MaxLength(95)
   email: string;
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(8)
+  @MaxLength(95)
   @Matches(/^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\d)[A-Za-z\d@$!%*?&amp;]{8,}$/, {
     message:
       &#x27;Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.&#x27;,

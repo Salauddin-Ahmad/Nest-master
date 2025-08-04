@@ -6,6 +6,7 @@ import {
   IsISO8601,
   IsJSON,
   IsNotEmpty,
+  IsObject,
   IsOptional,
   IsString,
   IsUrl,
@@ -29,15 +30,7 @@ export enum postStatus {
   Published = 'published',
 }
 
-export class CreatePostMetaOptionsDto {
-  @IsNotEmpty()
-  @IsString()
-  key: string;
-
-  @IsString()
-  @IsNotEmpty()
-  value: string;
-}
+import { CreatePostMetaOptionsDto } from 'src/meta-options/dtos/create-post-metaoption.dto';
 
 // MARK: CreatePostDto
 export class CreatePostDto {
@@ -125,23 +118,16 @@ export class CreatePostDto {
     items: {
       type: 'object',
       properties: {
-        key: {
-          type: 'string',
-          description:
-            'The key can be any string identifier for the meta option',
-          example: 'sidebarEnabled',
-        },
-        value: {
-          type: 'any',
-          description: 'Any value that you want to associate with the key',
-          example: 'true',
+        metavalue: {
+          type: 'json',
+          description: 'The metaValue is a JSON string',
+          example: '{"sidebarEnabled": true,}',
         },
       },
     },
   })
   @IsOptional()
-  @IsArray()
   @ValidateNested({ each: true })
   @Type(() => CreatePostMetaOptionsDto)
-  metaOptions?: CreatePostMetaOptionsDto[];
+  metaOptions?: CreatePostMetaOptionsDto | null;
 }

@@ -144,6 +144,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createUser" >createUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#findAll" >findAll</a>
                             </li>
                             <li>
@@ -168,12 +173,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, userRepository: <a href="../entitys/User.html" target="_self">Repository&lt;User&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/users/providers/user.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/users/providers/user.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -204,6 +209,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>userRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../entitys/User.html" target="_self" >Repository&lt;User&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -218,6 +235,76 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUser"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createUser</b></span>
+                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createUser(createUserDto: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/users/providers/user.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createUserDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -240,8 +327,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/users/providers/user.service.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/users/providers/user.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -335,8 +422,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/users/providers/user.service.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/users/providers/user.service.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -393,6 +480,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { GetUserParamDto } from &#x27;./../dtos/get-users-params.dto&#x27;;
 import { forwardRef, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { AuthService } from &#x27;src/auth/providers/auth.service&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { User } from &#x27;../user.entity&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { CreateUserDto } from &#x27;../dtos/create-user.dto&#x27;;
 
 /**
  * Class to connet user table and business operations
@@ -405,9 +496,25 @@ export class UserService {
   constructor(
     @Inject(forwardRef(() &#x3D;&gt; AuthService)) // Using forwardRef to avoid circular dependency
     private readonly authService: AuthService,
+    @InjectRepository(User)
+    private userRepository: Repository&lt;User&gt;, // This should be replaced with the actual repository type
   ) {
     const isAuth &#x3D; this.authService.isAuth();
     console.log(&#x60;Is Authenticated: ${isAuth}&#x60;);
+  }
+
+  public async createUser(createUserDto: CreateUserDto) {
+    // check if user already exists with the same email
+    const existingUser &#x3D; await this.userRepository.findOne({
+      where: { email: createUserDto.email },
+    });
+
+    // handle exception
+
+    // create a new user
+    let newUser &#x3D; this.userRepository.create(createUserDto);
+    newUser &#x3D; await this.userRepository.save(newUser);
+    return newUser;
   }
 
   /**
@@ -419,7 +526,7 @@ export class UserService {
     page: number,
   ) {
     const isAuth &#x3D; this.authService.isAuth();
-    console.log(&#x60;Is Authenticated: ${isAuth}&#x60;);
+    // console.log(&#x60;Is Authenticated: ${isAuth}&#x60;);
 
     return [
       {

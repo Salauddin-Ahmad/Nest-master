@@ -5,12 +5,8 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import {
-  CreatePostMetaOptionsDto,
-  postStatus,
-  PostType,
-} from './dtos/create-post.dto';
-import { Metaoption } from 'src/meta-options/meta-option.entity';
+import { postStatus, PostType } from './dtos/create-post.dto';
+import { MetaoptionEntity } from 'src/meta-options/meta-option.entity';
 
 @Entity()
 export class PostEntity {
@@ -74,10 +70,10 @@ export class PostEntity {
 
   tags?: string[];
 
-  @OneToOne(() => Metaoption, (metaOptions) => metaOptions.post, {
+  @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {
     cascade: true,
     eager: true,
   })
   @JoinColumn()
-  metaOptions?: Metaoption;
+  metaOptions?: MetaoptionEntity[];
 }

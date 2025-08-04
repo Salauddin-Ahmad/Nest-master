@@ -91,7 +91,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >PostsService</li>
+  <li class="breadcrumb-item" >MetaOptionsService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -115,7 +115,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/post/providers/posts.service.ts</code>
+            <code>src/meta-options/providers/meta-options.service.ts</code>
         </p>
 
 
@@ -137,12 +137,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#create" >create</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#findUser" >findUser</a>
+                                <a href="#createMetaoption" >createMetaoption</a>
                             </li>
                         </ul>
                     </td>
@@ -162,12 +157,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, postRepository: <a href="../entitys/PostEntity.html" target="_self">Repository&lt;PostEntity&gt;</a>, metaOptionsRepository: <a href="../entitys/MetaoptionEntity.html" target="_self">Repository&lt;MetaoptionEntity&gt;</a>)</code>
+<code>constructor(metaoptionRepository: <a href="../entitys/MetaoptionEntity.html" target="_self">Repository&lt;MetaoptionEntity&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/post/providers/posts.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/meta-options/providers/meta-options.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -185,31 +180,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>userService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>postRepository</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../entitys/PostEntity.html" target="_self" >Repository&lt;PostEntity&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>metaOptionsRepository</td>
+                                                        <td>metaoptionRepository</td>
                                                   
                                                         <td>
                                                                         <code><a href="../entitys/MetaoptionEntity.html" target="_self" >Repository&lt;MetaoptionEntity&gt;</a></code>
@@ -238,27 +209,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="create"></a>
+                    <a name="createMetaoption"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createMetaoption</b></span>
+                        <a href="#createMetaoption"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(createPostDto: <a href="../classes/CreatePostDto.html" target="_self">CreatePostDto</a>)</code>
+                    <code>createMetaoption(createPostMetaoptionsDto: <a href="../classes/CreatePostMetaOptionsDto.html" target="_self">CreatePostMetaOptionsDto</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/post/providers/posts.service.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="16"
+                                    class="link-to-prism">src/meta-options/providers/meta-options.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -279,9 +249,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>createPostDto</td>
+                                                <td>createPostMetaoptionsDto</td>
                                             <td>
-                                                            <code><a href="../classes/CreatePostDto.html" target="_self" >CreatePostDto</a></code>
+                                                            <code><a href="../classes/CreatePostMetaOptionsDto.html" target="_self" >CreatePostMetaOptionsDto</a></code>
                                             </td>
 
                                             <td>
@@ -304,138 +274,32 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findUser"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>findUser</b></span>
-                        <a href="#findUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/post/providers/posts.service.ts:43</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>userId</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>{}</code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Injectable } from &#x27;@nestjs/common&#x27;;
-import { UserService } from &#x27;src/users/providers/user.service&#x27;;
-import { CreatePostDto } from &#x27;../dtos/create-post.dto&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
-import { PostEntity } from &#x27;../post.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MetaoptionEntity } from &#x27;src/meta-options/meta-option.entity&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { MetaoptionEntity } from &#x27;src/meta-options/meta-option.entity&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
+import { CreatePostMetaOptionsDto } from &#x27;../dtos/create-post-metaoption.dto&#x27;;
 
 @Injectable()
-export class PostsService {
-  // Injecting UserService to use its methods
-
+export class MetaOptionsService {
   constructor(
-    /**
-     * Injecting the user service
-     */
-    private readonly userService: UserService,
-    /**
-     * Injecting the Post Repository
-     */
-    @InjectRepository(PostEntity)
-    private readonly postRepository: Repository&lt;PostEntity&gt;,
-
     @InjectRepository(MetaoptionEntity)
-    private readonly metaOptionsRepository: Repository&lt;MetaoptionEntity&gt;,
-  ) {}
-
-  public async create(@Body() createPostDto: CreatePostDto) {
-    // create metaOptions
-    let metaOptions &#x3D; createPostDto.metaOptions
-      ? this.metaOptionsRepository.create(createPostDto.metaOptions)
-      : null;
-
-    if (metaOptions) {
-      await this.metaOptionsRepository.save(metaOptions);
-    }
-
-    // create a post
-    //  Add metaoptions to the post
-    // return the post
+    private readonly metaoptionRepository: Repository&lt;MetaoptionEntity&gt;,
+  ) {
+    console.log(&#x27;hello&#x27;);
   }
 
-  public findUser(userId: string) {
-    const userID &#x3D; this.userService.findOneById(userId);
-
-    return [
-      {
-        user: userID,
-        postTitle: &#x27;Post 1&#x27;,
-        content: &#x27;Content of Post 1&#x27;,
-      },
-      {
-        user: userID,
-        postTitle: &#x27;Post 2&#x27;,
-        content: &#x27;Content of Post 2&#x27;,
-      },
-    ];
+  public createMetaoption(createPostMetaoptionsDto: CreatePostMetaOptionsDto) {
+    const metaOption &#x3D; this.metaoptionRepository.create(
+      createPostMetaoptionsDto,
+    );
+    return this.metaoptionRepository.save(metaOption);
   }
 }
 </code></pre>
@@ -481,7 +345,7 @@ export class PostsService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'PostsService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MetaOptionsService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

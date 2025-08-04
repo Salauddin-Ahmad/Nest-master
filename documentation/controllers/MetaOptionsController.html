@@ -79,19 +79,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >PostsService</li>
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >MetaOptionsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -115,8 +112,16 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/post/providers/posts.service.ts</code>
+            <code>src/meta-options/meta-options.controller.ts</code>
         </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>meta-options</code>
+            </p>
+
 
 
 
@@ -136,13 +141,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#create" >create</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#findUser" >findUser</a>
                             </li>
                         </ul>
                     </td>
@@ -156,79 +157,6 @@
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, postRepository: <a href="../entitys/PostEntity.html" target="_self">Repository&lt;PostEntity&gt;</a>, metaOptionsRepository: <a href="../entitys/MetaoptionEntity.html" target="_self">Repository&lt;MetaoptionEntity&gt;</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/post/providers/posts.service.ts:10</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>userService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>postRepository</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../entitys/PostEntity.html" target="_self" >Repository&lt;PostEntity&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>metaOptionsRepository</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../entitys/MetaoptionEntity.html" target="_self" >Repository&lt;MetaoptionEntity&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
             <section data-compodoc="block-methods">
     
     <h3 id="methods">
@@ -240,8 +168,8 @@
                 <td class="col-md-4">
                     <a name="create"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
                         <span ><b>create</b></span>
                         <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -250,15 +178,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(createPostDto: <a href="../classes/CreatePostDto.html" target="_self">CreatePostDto</a>)</code>
+                    <code>create(createPostMetaOptionsDto: <a href="../classes/CreatePostMetaOptionsDto.html" target="_self">CreatePostMetaOptionsDto</a>)</code>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br /></code>
+                </td>
+            </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/post/providers/posts.service.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">src/meta-options/meta-options.controller.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -279,9 +214,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>createPostDto</td>
+                                                <td>createPostMetaOptionsDto</td>
                                             <td>
-                                                            <code><a href="../classes/CreatePostDto.html" target="_self" >CreatePostDto</a></code>
+                                                            <code><a href="../classes/CreatePostMetaOptionsDto.html" target="_self" >CreatePostMetaOptionsDto</a></code>
                                             </td>
 
                                             <td>
@@ -304,144 +239,34 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findUser"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>findUser</b></span>
-                        <a href="#findUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/post/providers/posts.service.ts:43</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>userId</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>{}</code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-    </div>
+</section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Injectable } from &#x27;@nestjs/common&#x27;;
-import { UserService } from &#x27;src/users/providers/user.service&#x27;;
-import { CreatePostDto } from &#x27;../dtos/create-post.dto&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
-import { PostEntity } from &#x27;../post.entity&#x27;;
-import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { MetaoptionEntity } from &#x27;src/meta-options/meta-option.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
 
-@Injectable()
-export class PostsService {
-  // Injecting UserService to use its methods
+import { MetaOptionsService } from &#x27;./providers/meta-options.service&#x27;;
+import { CreatePostMetaOptionsDto } from &#x27;./dtos/create-post-metaoption.dto&#x27;;
 
+@Controller(&#x27;meta-options&#x27;)
+export class MetaOptionsController {
   constructor(
     /**
-     * Injecting the user service
+     * Inject MetaoptionsService
      */
-    private readonly userService: UserService,
-    /**
-     * Injecting the Post Repository
-     */
-    @InjectRepository(PostEntity)
-    private readonly postRepository: Repository&lt;PostEntity&gt;,
-
-    @InjectRepository(MetaoptionEntity)
-    private readonly metaOptionsRepository: Repository&lt;MetaoptionEntity&gt;,
+    private readonly metaOptionsService: MetaOptionsService,
   ) {}
-
-  public async create(@Body() createPostDto: CreatePostDto) {
-    // create metaOptions
-    let metaOptions &#x3D; createPostDto.metaOptions
-      ? this.metaOptionsRepository.create(createPostDto.metaOptions)
-      : null;
-
-    if (metaOptions) {
-      await this.metaOptionsRepository.save(metaOptions);
-    }
-
-    // create a post
-    //  Add metaoptions to the post
-    // return the post
-  }
-
-  public findUser(userId: string) {
-    const userID &#x3D; this.userService.findOneById(userId);
-
-    return [
-      {
-        user: userID,
-        postTitle: &#x27;Post 1&#x27;,
-        content: &#x27;Content of Post 1&#x27;,
-      },
-      {
-        user: userID,
-        postTitle: &#x27;Post 2&#x27;,
-        content: &#x27;Content of Post 2&#x27;,
-      },
-    ];
+  @Post()
+  public create(@Body() createPostMetaOptionsDto: CreatePostMetaOptionsDto) {
+    return this.metaOptionsService.createMetaoption(createPostMetaOptionsDto);
   }
 }
 </code></pre>
     </div>
-
 </div>
+
+
+
 
 
 
@@ -480,8 +305,8 @@ export class PostsService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'PostsService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'MetaOptionsController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

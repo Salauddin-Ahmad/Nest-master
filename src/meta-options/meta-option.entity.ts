@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity('meta_options')
-export class Metaoption {
+export class MetaoptionEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
