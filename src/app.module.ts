@@ -35,6 +35,6 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
     MetaOptionsModule,
   ],
   controllers: [AppController, PostController],
-  providers: [AppService, PostsService],
+  providers: [AppService],
 })
 export class AppModule {}
