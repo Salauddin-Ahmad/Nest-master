@@ -13,10 +13,12 @@ export class MetaOptionsService {
     console.log('hello');
   }
 
-  public createMetaoption(createPostMetaoptionsDto: CreatePostMetaOptionsDto) {
+  public async createMetaoption(
+    createPostMetaoptionsDto: CreatePostMetaOptionsDto,
+  ) {
     const metaOption = this.metaoptionRepository.create(
       createPostMetaoptionsDto,
     );
-    return this.metaoptionRepository.save(metaOption);
+    return await this.metaoptionRepository.save(metaOption);
   }
 }

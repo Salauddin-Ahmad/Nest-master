@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { PostController } from './post/post.controller';
 import { PostModule } from './post/post.module';
-import { PostsService } from './post/providers/posts.service';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 // import { User } from './users/user.entity';

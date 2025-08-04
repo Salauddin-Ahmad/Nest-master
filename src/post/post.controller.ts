@@ -28,10 +28,10 @@ export class PostController {
     description: 'Post created successfully',
   })
   @Post()
-  public createPosty(
+  public createPost(
     @Body() createPostDto: CreatePostDto, // Assuming CreatePostDto is defined elsewhere
   ) {
-    console.log(createPostDto);
+    return this.postService.create(createPostDto);
   }
 
   @ApiOperation({

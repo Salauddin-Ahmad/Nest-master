@@ -25,7 +25,7 @@ export class PostsService {
     private readonly metaOptionsRepository: Repository<MetaoptionEntity>,
   ) {}
 
-  public async create(@Body() createPostDto: CreatePostDto) {
+  public async create(createPostDto: CreatePostDto) {
     // create metaOptions
     let metaOptions = createPostDto.metaOptions
       ? this.metaOptionsRepository.create(createPostDto.metaOptions)
@@ -36,6 +36,12 @@ export class PostsService {
     }
 
     // create a post
+    const post = this.postRepository.create({
+      ...createPostDto,
+      metaOptions: metaOptions,
+    });
+
+    return await this.postRepository.save(post);
     //  Add metaoptions to the post
     // return the post
   }

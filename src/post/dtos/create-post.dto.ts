@@ -6,7 +6,6 @@ import {
   IsISO8601,
   IsJSON,
   IsNotEmpty,
-  IsObject,
   IsOptional,
   IsString,
   IsUrl,
@@ -111,6 +110,25 @@ export class CreatePostDto {
   @IsString({ each: true })
   @MinLength(3, { each: true })
   tags?: string[];
+
+  // @ApiPropertyOptional({
+  //   type: 'object',
+  //   required: false,
+  //   items: {
+  //     type: 'object',
+  //     properties: {
+  //       metavalue: {
+  //         type: 'json',
+  //         description: 'The metaValue is a JSON string',
+  //         example: '{"sidebarEnabled": true,}',
+  //       },
+  //     },
+  //   },
+  // })
+  // @IsOptional()
+  // @ValidateNested({ each: true })
+  // @Type(() => CreatePostMetaOptionsDto)
+  // metaOptions?: CreatePostMetaOptionsDto | null;
 
   @ApiPropertyOptional({
     type: 'array',

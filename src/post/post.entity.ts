@@ -70,10 +70,7 @@ export class PostEntity {
 
   tags?: string[];
 
-  @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {
-    cascade: true,
-    eager: true,
-  })
+  @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {})
   @JoinColumn()
-  metaOptions?: MetaoptionEntity[];
+  metaOptions?: MetaoptionEntity | null;
 }
