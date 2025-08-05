@@ -60,7 +60,7 @@ export class PostEntity {
     length: 1024,
     nullable: true,
   })
-  featuredImage?: string;
+  featuredImageUrl?: string;
 
   @Column({
     type: 'timestamp', // 'datetime' in mySQL
@@ -70,7 +70,9 @@ export class PostEntity {
 
   tags?: string[];
 
-  @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {})
+  @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {
+    cascade: true,
+  })
   @JoinColumn()
   metaOptions?: MetaoptionEntity | null;
 }

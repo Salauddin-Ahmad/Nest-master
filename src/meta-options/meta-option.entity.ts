@@ -26,9 +26,6 @@ export class MetaoptionEntity {
   @UpdateDateColumn()
   updateDate: Date;
 
-  @OneToOne(() => PostEntity, (post) => post.metaOptions, {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn()
+  @OneToOne(() => PostEntity, (post) => post.metaOptions, {})
   post: PostEntity;
 }

@@ -26,24 +26,25 @@ export class PostsService {
   ) {}
 
   public async create(createPostDto: CreatePostDto) {
-    // create metaOptions
-    let metaOptions = createPostDto.metaOptions
-      ? this.metaOptionsRepository.create(createPostDto.metaOptions)
-      : null;
+    // create post
 
-    if (metaOptions) {
-      await this.metaOptionsRepository.save(metaOptions);
-    }
+    const post = this.postRepository.create(createPostDto);
 
-    // create a post
-    const post = this.postRepository.create({
-      ...createPostDto,
-      metaOptions: metaOptions,
-    });
+    // let metaOptions = createPostDto.metaOptions
+    //   ? this.metaOptionsRepository.create(createPostDto.metaOptions)
+    //   : null;
+
+    // if (metaOptions) {
+    //   await this.metaOptionsRepository.save(metaOptions);
+    // }
+
+    // // create a post
+    // const post = this.postRepository.create({
+    //   ...createPostDto,
+    //   metaOptions: metaOptions,
+    // });
 
     return await this.postRepository.save(post);
-    //  Add metaoptions to the post
-    // return the post
   }
 
   public findUser(userId: string) {

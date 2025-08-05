@@ -4,7 +4,7 @@ Content-Type: application/json
 {
   "title": "whats new in NestJS",
   "postType": "post",
-  "slug": "new-with-nestjs",
+  "slug": "new-with-nestjs-3",
   "status": "draft",
   "content": "test content",
    "schema": "{\"type\":\"object\"}",     
