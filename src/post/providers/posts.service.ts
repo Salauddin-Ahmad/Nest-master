@@ -1,4 +1,4 @@
-import { Body, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { UserService } from 'src/users/providers/user.service';
 import { CreatePostDto } from '../dtos/create-post.dto';
 import { Repository } from 'typeorm';
@@ -29,21 +29,6 @@ export class PostsService {
     // create post
 
     const post = this.postRepository.create(createPostDto);
-
-    // let metaOptions = createPostDto.metaOptions
-    //   ? this.metaOptionsRepository.create(createPostDto.metaOptions)
-    //   : null;
-
-    // if (metaOptions) {
-    //   await this.metaOptionsRepository.save(metaOptions);
-    // }
-
-    // // create a post
-    // const post = this.postRepository.create({
-    //   ...createPostDto,
-    //   metaOptions: metaOptions,
-    // });
-
     return await this.postRepository.save(post);
   }
 
@@ -62,5 +47,17 @@ export class PostsService {
         content: 'Content of Post 2',
       },
     ];
+  }
+
+  public async findAllPosts() {
+    // const user = this.userService.findOneById();
+
+    const posts = await this.postRepository.find({
+      relations: {
+        metaOptions: true,
+      },
+    });
+    console.log(posts);
+    return posts;
   }
 }

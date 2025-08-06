@@ -9,16 +9,31 @@ import { PatchPostDto } from './dtos/patch-post.dto';
 export class PostController {
   constructor(private readonly postService: PostsService) {}
 
+  // MARK: GET ALL THE posts
+  @ApiOperation({
+    summary: 'get all the posts',
+  })
+  @ApiResponse({
+    status: 200,
+  })
+  @Get('/get-posts')
+  public async getAllPosts() {
+    const allPosts = this.postService.findAllPosts();
+    console.log(allPosts);
+    return await allPosts;
+  }
+
   /**
    *
    *  GEt localhost:3000/posts/:userId
    */
+  // MARK: GET user
+  // @Get('/:userid')
+  // public getPosts(@Param('userId') userId: string) {
+  //   return this.postService.findUser(userId);
+  // }
 
-  @Get('/:userId')
-  public getPosts(@Param('userId') userId: string) {
-    return this.postService.findUser(userId);
-  }
-
+  // MARK: POST create
   @ApiOperation({
     summary: 'Creates a new post',
     description: 'Creates a new blog post with the provided details.',
@@ -34,6 +49,7 @@ export class PostController {
     return this.postService.create(createPostDto);
   }
 
+  // MARK: PATCH
   @ApiOperation({
     summary: 'Pathces the post',
     description: 'Updates an existing blog post with the provided details.',

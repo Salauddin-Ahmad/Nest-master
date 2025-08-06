@@ -28,3 +28,7 @@ Content-Type: application/json
   "postType": "post"
 
 }
+
+
+// MARK: GET all the posts from db
+GET http://localhost:3000/posts/get-posts
