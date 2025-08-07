@@ -72,6 +72,7 @@ export class PostEntity {
 
   @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {
     cascade: true,
+    eager: true,
   })
   @JoinColumn()
   metaOptions?: MetaoptionEntity | null;

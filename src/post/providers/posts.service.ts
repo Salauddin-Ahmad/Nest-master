@@ -55,9 +55,14 @@ export class PostsService {
     const posts = await this.postRepository.find({
       relations: {
         metaOptions: true,
-      },
+      }, // set eager true inside entity does the same as this line above
+      // so we can use both
     });
     console.log(posts);
     return posts;
+  }
+
+  public async delte(id: number) {
+    
   }
 }
