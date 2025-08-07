@@ -32,3 +32,9 @@ Content-Type: application/json
 
 // MARK: GET all the posts from db
 GET http://localhost:3000/posts/get-posts
+
+
+// MARK: DELETE posts from db
+
+DELETE http://localhost:3000/posts
+?id=4
