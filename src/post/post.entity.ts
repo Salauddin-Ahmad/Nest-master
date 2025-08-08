@@ -74,6 +74,5 @@ export class PostEntity {
     cascade: true,
     eager: true,
   })
-  @JoinColumn()
   metaOptions?: MetaoptionEntity | null;
 }

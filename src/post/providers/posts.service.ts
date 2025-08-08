@@ -70,9 +70,21 @@ export class PostsService {
 
     // deleting the post
 
-    await this.postRepository.delete(id);
-    //delte the metaoptions
-    await this.metaOptionsRepository.delete(post?.metaOptions?.id);
+    // await this.postRepository.delete(id);
+
+    // //delte the metaoptions
+    // if (post?.metaOptions) {
+    //   await this.metaOptionsRepository.delete(post.metaOptions.id);
+    // }
+
+    const inveresePost = await this.metaOptionsRepository.find({
+      where: { id: post?.metaOptions?.id },
+      relations: {
+        post: true,
+      },
+    });
+
+    console.log(inveresePost);
 
     return { deleted: true, id };
   }

@@ -74,11 +74,11 @@ export class PostController {
   }
 
   @Delete()
-  public deletepost(
-    @Query('id', ParseIntPipe) queryId: number,
-    @Param('id', ParseIntPipe) paramId: number,
-  ) {
+  public async deletepost(
+    @Query('id') queryId: number,
+    @Param('id') paramId: number,
+  ): Promise<{ deleted: boolean; id: number }> {
     const id = Number(paramId || queryId);
-    return this.postService.delete(id);
+    return await this.postService.deletePost(id);
   }
 }
