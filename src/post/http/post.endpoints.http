@@ -4,7 +4,7 @@ Content-Type: application/json
 {
   "title": "whats new in NestJS",
   "postType": "post",
-  "slug": "new-with-nestjs-3",
+  "slug": "new-with-nestjs",
   "status": "draft",
   "content": "test content",
    "schema": "{\"type\":\"object\"}",     
@@ -37,4 +37,4 @@ GET http://localhost:3000/posts/get-posts
 // MARK: DELETE posts from db
 
 DELETE http://localhost:3000/posts
-?id=2
+?id=13

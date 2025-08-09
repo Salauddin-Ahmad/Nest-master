@@ -2,11 +2,13 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { postStatus, PostType } from './dtos/create-post.dto';
 import { MetaoptionEntity } from 'src/meta-options/meta-option.entity';
+import { User } from 'src/users/user.entity';
 
 @Entity()
 export class PostEntity {
@@ -68,11 +70,15 @@ export class PostEntity {
   })
   publishOn?: Date;
 
-  tags?: string[];
-
   @OneToOne(() => MetaoptionEntity, (metaOptions) => metaOptions.post, {
     cascade: true,
     eager: true,
   })
   metaOptions?: MetaoptionEntity | null;
+
+  @ManyToOne(() => User, (user) => user?.posts)
+  @JoinColumn({ name: 'authorId' })
+  author: User;
+
+  tags?: string[];
 }

@@ -62,11 +62,11 @@ export class PostsService {
     return posts;
   }
 
-  public async deletePost(
-    id: number,
-  ): Promise<{ deleted: boolean; id: number }> {
+  public async deletePost(id: number) {
+    // : Promise<{ deleted: boolean; id: number }> for the return type
+
     //find the post
-    const post = await this.postRepository.findOneBy({ id });
+    await this.postRepository.delete({ id });
 
     // deleting the post
 
@@ -77,14 +77,14 @@ export class PostsService {
     //   await this.metaOptionsRepository.delete(post.metaOptions.id);
     // }
 
-    const inveresePost = await this.metaOptionsRepository.find({
-      where: { id: post?.metaOptions?.id },
-      relations: {
-        post: true,
-      },
-    });
+    // const inveresePost = await this.metaOptionsRepository.find({
+    //   where: { id: post?.metaOptions?.id },
+    //   relations: {
+    //     post: true,
+    //   },
+    // });
 
-    console.log(inveresePost);
+    // console.log(inveresePost);
 
     return { deleted: true, id };
   }
