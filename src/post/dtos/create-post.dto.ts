@@ -3,6 +3,7 @@ import { Type } from 'class-transformer';
 import {
   IsArray,
   IsEnum,
+  IsInt,
   IsISO8601,
   IsJSON,
   IsNotEmpty,
@@ -111,25 +112,6 @@ export class CreatePostDto {
   @MinLength(3, { each: true })
   tags?: string[];
 
-  // @ApiPropertyOptional({
-  //   type: 'object',
-  //   required: false,
-  //   items: {
-  //     type: 'object',
-  //     properties: {
-  //       metavalue: {
-  //         type: 'json',
-  //         description: 'The metaValue is a JSON string',
-  //         example: '{"sidebarEnabled": true,}',
-  //       },
-  //     },
-  //   },
-  // })
-  // @IsOptional()
-  // @ValidateNested({ each: true })
-  // @Type(() => CreatePostMetaOptionsDto)
-  // metaOptions?: CreatePostMetaOptionsDto | null;
-
   @ApiPropertyOptional({
     type: 'array',
     required: false,
@@ -148,4 +130,13 @@ export class CreatePostDto {
   @ValidateNested({ each: true })
   @Type(() => CreatePostMetaOptionsDto)
   metaOptions?: CreatePostMetaOptionsDto | null;
+
+  @ApiProperty({
+    type: 'integer',
+    required: true,
+    example: 1,
+  })
+  @IsNotEmpty()
+  @IsInt()
+  authorId: number;
 }

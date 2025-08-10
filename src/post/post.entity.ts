@@ -78,7 +78,7 @@ export class PostEntity {
 
   @ManyToOne(() => User, (user) => user?.posts)
   @JoinColumn({ name: 'authorId' })
-  author: User;
+  authorId: User;
 
   tags?: string[];
 }

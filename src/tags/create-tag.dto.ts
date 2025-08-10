@@ -1,5 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
+  IsInt,
   IsJSON,
   IsNotEmpty,
   IsOptional,
@@ -49,4 +50,13 @@ export class CreateTagDto {
   @IsUrl()
   @MaxLength(1024)
   featuredImageUrl?: string;
+
+  @ApiProperty({
+    type: 'integer',
+    required: true,
+    example: 1,
+  })
+  @IsNotEmpty()
+  @IsInt()
+  authorId?: number;
 }
