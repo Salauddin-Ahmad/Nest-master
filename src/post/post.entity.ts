@@ -1,7 +1,6 @@
 import {
   Column,
   Entity,
-  JoinColumn,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -76,9 +75,10 @@ export class PostEntity {
   })
   metaOptions?: MetaoptionEntity | null;
 
-  @ManyToOne(() => User, (user) => user?.posts)
-  @JoinColumn({ name: 'authorId' })
-  authorId: User;
+  @ManyToOne(() => User, (user) => user.posts, {
+    eager: true,
+  })
+  author: User;
 
   tags?: string[];
 }

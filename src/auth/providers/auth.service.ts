@@ -7,7 +7,7 @@ export class AuthService {
     @Inject(forwardRef(() => UserService)) // Using forwardRef to avoid circular dependency
     private readonly userService: UserService,
   ) {}
-  public login(email: string, password: string, id: string): string {
+  public login(email: string, password: string, id: number): string {
     //check user database
     //login
     //token

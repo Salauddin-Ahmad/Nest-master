@@ -32,31 +32,16 @@ export class PostsService {
 
     const author = await this.userService.findOneById(createPostDto.authorId);
     if (!author) {
-      throw new Error(`Author not found`);
+      throw new Error(`Author with id ${createPostDto.authorId} not found`);
     }
-
     const post = this.postRepository.create({
       ...createPostDto,
-      authorId: author,
+      author: author,
     });
+    if (!post) {
+      throw new Error(`Post not created`);
+    }
     return await this.postRepository.save(post);
-  }
-
-  public findUser(userId: string) {
-    const userID = this.userService.findOneById(userId);
-
-    return [
-      {
-        user: userID,
-        postTitle: 'Post 1',
-        content: 'Content of Post 1',
-      },
-      {
-        user: userID,
-        postTitle: 'Post 2',
-        content: 'Content of Post 2',
-      },
-    ];
   }
 
   public async findAllPosts() {
