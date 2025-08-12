@@ -11,6 +11,9 @@ import { TagsModule } from './tags/tags.module';
 import { MetaOptionsModule } from './meta-options/meta-options.module';
 
 @Module({
+  // /d/Projects/nest-master >> for getting the sql into a file
+  //  pg_dump -U postgres -h localhost -d Nest-master -F c -b -v -f schema.sql
+
   imports: [
     UsersModule,
     PostModule,
