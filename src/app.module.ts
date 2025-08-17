@@ -1,3 +1,4 @@
+import { SentryModule } from '@sentry/nestjs';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -15,6 +16,7 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
   //  pg_dump -U postgres -h localhost -d Nest-master -F c -b -v -f schema.sql
 
   imports: [
+    SentryModule.forRoot(),
     UsersModule,
     PostModule,
     AuthModule,
