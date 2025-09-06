@@ -1,4 +1,3 @@
-import { SentryModule } from '@sentry/nestjs';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,7 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 // import { User } from './users/user.entity';
 import { TagsModule } from './tags/tags.module';
 import { MetaOptionsModule } from './meta-options/meta-options.module';
-
+import { SentryGlobalFilter, SentryModule } from '@sentry/nestjs/setup';
+import { APP_FILTER } from '@nestjs/core';
 @Module({
   // /d/Projects/nest-master >> for getting the sql into a file
   //  pg_dump -U postgres -h localhost -d Nest-master -F c -b -v -f schema.sql
@@ -39,6 +39,12 @@ import { MetaOptionsModule } from './meta-options/meta-options.module';
     MetaOptionsModule,
   ],
   controllers: [AppController, PostController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: SentryGlobalFilter,
+    },
+  ],
 })
 export class AppModule {}
